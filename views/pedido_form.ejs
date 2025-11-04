@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <title>Novo Pedido - Cupcake Delícia</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="cabecalho">
+    <h1 class="logo">🧁 Cupcake Delícia</h1>
+    <nav class="menu">
+      <a href="/">Home</a>
+      <a href="/cupcakes">Cupcakes</a>
+      <a href="/clientes">Clientes</a>
+      <a href="/pedidos">Pedidos</a>
+    </nav>
+  </header>
+
+  <main class="conteudo">
+    <h2>Registrar Novo Pedido</h2>
+
+    <form method="POST" action="/pedidos/novo" class="formulario">
+      <label>ID do Cliente:</label>
+      <input type="number" name="id_cliente" placeholder="Ex: 1" required>
+
+      <fieldset class="campo-itens">
+        <legend>Selecione os cupcakes</legend>
+        <% if (cupcakes && cupcakes.length) { %>
+          <% cupcakes.forEach(function(c){ %>
+            <label>
+              <input type="checkbox" name="items" value="<%= c.id_cupcake %>|1">
+              <%= c.sabor %> — R$ <%= c.preco.toFixed(2) %>
+            </label><br>
+          <% }) %>
+        <% } else { %>
+          <p>Nenhum cupcake cadastrado ainda.</p>
+        <% } %>
+      </fieldset>
+
+      <button type="submit" class="botao">Confirmar Pedido</button>
+    </form>
+
+    <a href="/pedidos" class="botao-pequeno">Voltar</a>
+  </main>
+
+  <footer class="rodape">
+    <p>© 2025 Cupcake Delícia | Desenvolvido por Alexandre Pimenta</p>
+  </footer>
+</body>
+</html>

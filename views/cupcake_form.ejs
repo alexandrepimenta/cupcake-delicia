@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <title>Cadastrar Cupcake - Cupcake Delícia</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="cabecalho">
+    <h1 class="logo">🧁 Cupcake Delícia</h1>
+    <nav class="menu">
+      <a href="/">Home</a>
+      <a href="/cupcakes">Cupcakes</a>
+      <a href="/clientes">Clientes</a>
+      <a href="/pedidos">Pedidos</a>
+    </nav>
+  </header>
+
+  <main class="conteudo">
+    <h2>Cadastrar Novo Cupcake</h2>
+
+    <form method="POST" action="/cupcakes/novo" class="formulario">
+      <label>Sabor:</label>
+      <input type="text" name="sabor" placeholder="Ex: Chocolate com morango" required>
+
+      <label>Cobertura:</label>
+      <input type="text" name="cobertura" placeholder="Ex: Ganache de chocolate" required>
+
+      <label>Confeitos:</label>
+      <input type="text" name="confeitos" placeholder="Ex: Granulado belga">
+
+      <label>Preço (R$):</label>
+      <input type="number" name="preco" step="0.01" placeholder="Ex: 7.50" required>
+
+      <button type="submit" class="botao">Salvar Cupcake</button>
+    </form>
+
+    <a href="/cupcakes" class="botao-pequeno">Voltar</a>
+  </main>
+
+  <footer class="rodape">
+    <p>© 2025 Cupcake Delícia | Desenvolvido por Alexandre Pimenta</p>
+  </footer>
+</body>
+</html>

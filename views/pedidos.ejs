@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <title>Pedidos - Cupcake Delícia</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="cabecalho">
+    <h1 class="logo">🧁 Cupcake Delícia</h1>
+    <nav class="menu">
+      <a href="/">Home</a>
+      <a href="/cupcakes">Cupcakes</a>
+      <a href="/clientes">Clientes</a>
+      <a href="/pedidos">Pedidos</a>
+    </nav>
+  </header>
+
+  <main class="conteudo">
+    <h2>Pedidos</h2>
+
+    <a href="/pedidos/novo" class="botao-pequeno">+ Novo Pedido</a>
+
+    <% if (pedidos && pedidos.length) { %>
+      <div class="lista">
+        <% pedidos.forEach(function(p){ %>
+          <div class="item-card">
+            <h3>Pedido #<%= p.id_pedido %></h3>
+            <p><strong>Data:</strong> <%= p.data_pedido %></p>
+            <p><strong>Cliente:</strong> <%= p.cliente_nome || 'Não informado' %></p>
+            <p><strong>Total:</strong> R$ <%= (p.total || 0).toFixed(2) %></p>
+            <p><strong>Status:</strong> <%= p.status %></p>
+
+            <!-- Botão de exclusão -->
+            <form method="POST" action="/pedidos/excluir/<%= p.id_pedido %>" onsubmit="return confirm('Tem certeza que deseja excluir este pedido?');">
+              <button type="submit" class="btn-excluir">Excluir</button>
+            </form>
+          </div>
+        <% }) %>
+      </div>
+    <% } else { %>
+      <p>Nenhum pedido registrado ainda.</p>
+    <% } %>
+  </main>
+
+  <footer class="rodape">
+    <p>© 2025 Cupcake Delícia | Desenvolvido por Alexandre Pimenta</p>
+  </footer>
+</body>
+</html>

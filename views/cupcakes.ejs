@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <title>Lista de Cupcakes - Cupcake Delícia</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="cabecalho">
+    <h1 class="logo">🧁 Cupcake Delícia</h1>
+    <nav class="menu">
+      <a href="/">Home</a>
+      <a href="/cupcakes">Cupcakes</a>
+      <a href="/clientes">Clientes</a>
+      <a href="/pedidos">Pedidos</a>
+    </nav>
+  </header>
+
+  <main class="conteudo">
+    <h2>Lista de Cupcakes</h2>
+
+    <a href="/cupcakes/novo" class="botao-pequeno">+ Novo Cupcake</a>
+
+    <% if (cupcakes && cupcakes.length) { %>
+      <div class="lista">
+        <% cupcakes.forEach(function(c){ %>
+          <div class="item-card">
+            <h3><%= c.sabor %></h3>
+            <p><strong>Cobertura:</strong> <%= c.cobertura %></p>
+            <p><strong>Confeitos:</strong> <%= c.confeitos %></p>
+            <p><strong>Preço:</strong> R$ <%= c.preco.toFixed(2) %></p>
+            <form method="POST" action="/cupcakes/excluir/<%= c.id_cupcake %>" onsubmit="return confirm('Excluir este cupcake?');">
+              <button type="submit" class="btn-excluir">Excluir</button>
+            </form>
+          </div>
+        <% }) %>
+      </div>
+    <% } else { %>
+      <p>Nenhum cupcake cadastrado ainda.</p>
+    <% } %>
+  </main>
+
+  <footer class="rodape">
+    <p>© 2025 Cupcake Delícia | Desenvolvido por Alexandre Pimenta</p>
+  </footer>
+</body>
+</html>
