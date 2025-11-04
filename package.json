@@ -1,21 +1,18 @@
 {
   "name": "cupcake-delicia",
   "version": "1.0.0",
-  "description": "Aplicativo Cupcake Delícia - PIT II (versão de demonstração com SQLite)",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js"
+    "postinstall": "npm rebuild sqlite3 --build-from-source"
   },
-  "author": "Alexandre Pimenta",
-  "license": "MIT",
   "dependencies": {
     "body-parser": "^1.20.2",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
-    "sqlite3": "^5.1.7"
+    "sqlite3": "^5.1.6"
   },
-  "devDependencies": {
-    "nodemon": "^3.0.1"
+  "engines": {
+    "node": "22.x"
   }
 }
