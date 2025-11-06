@@ -9,6 +9,7 @@ const { init } = require('./db/connection');
 // Inicializa o app
 const app = express();
 const PORT = process.env.PORT || 3000;
+console.log("Porta definida para:", PORT);
 
 // ======== MIDDLEWARES ========
 app.use(bodyParser.urlencoded({ extended: true }));
